@@ -650,7 +650,10 @@ png_set_longjmp_fn(png_structrp png_ptr, png_longjmp_ptr longjmp_fn,
       if (size != jmp_buf_size)
       {
          png_warning(png_ptr, "Application jmp_buf size changed");
-         return NULL; /* caller will probably crash: no choice here */
+         /*
+          * patched for android - Miguel Catalán Cid
+          */
+         //return NULL; /* caller will probably crash: no choice here */
       }
    }
 
